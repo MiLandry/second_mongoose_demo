@@ -10,6 +10,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+//mongoose
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://hamsterofdark:hamsterofdark@ds011775.mlab.com:11775/standup_db');
 
 //assign swig to view engine
 app.engine('html', swig.renderFile);
@@ -59,5 +62,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-module.exports = app;
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
